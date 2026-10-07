@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index_styles.css"> 
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=114415&format=png&color=000000">
+    <title>FocusList</title>
+</head>
+<body>
+    <section class="menu" id="menu_js">
+        <h1>FocusList</h1>
+        <span class="btn_menu inicio" id="btn_js">Inicio</span>
+        <span class="btn_menu alta" id="btnAlta">Alta</span>
+        <span class="btn_menu media" id="btnMedia">Media</span>
+        <span class="btn_menu baja" id="btnBaja">Baja</span>
+    </section>
+
+    <section class="principal" id="principal_seccion">
+
+        
+            <div class="agregar_nueva" id="agregar">
+                <label for="btn_agregar">Agregar Nueva Tarea</label>
+                <button class="agregar" id="btn_agregar">+Nueva Tarea</button>
+            </div>
+
+            <h2>TAREAS</h2>
+            <div class="resumen" id="resumen_general">
+                
+                <p class="activo_resumen" id="noTarea">Ninguna Tarea Registrada...</p>
+
+            </div>
+
+    </section>
+    
+    <dialog class="inactivo_nueva_tarea" id="modal_agregar">
+        <form id="formulario_tarea">
+            <label for="titulo_tarea">Titulo de la Tarea</label>
+            <input type="text" placeholder="Titulo de la tarea" id="titulo_tarea">
+
+            <label for="descripcion" >Descripcion de la tarea</label>
+            <textarea id="descripcion" Placeholder="Descripcion"></textarea>
+
+            <label for="importancia">Importancia</label>
+            <select id="importancia_op">
+                <option>Selecciona una opcion</option>
+                <option value="alto">Alto</option>
+                <option value="medio">Medio</option>
+                <option value="bajo">Bajo</option>
+            </select>
+
+            
+        </form>
+        <button id="guardar">Guardar</button>
+    
+    </dialog>
+
+    <dialog class="inactivo_nueva_tarea" id="modal_editar">
+        <form id="formulario_tarea">
+            <label for="titulo_tarea">Titulo de la Tarea</label>
+            <input type="text" placeholder="Titulo de la tarea" id="tituloNuevo">
+
+            <label for="descripcion" >Descripcion de la tarea</label>
+            <textarea id="descripcionNueva" Placeholder="Descripcion"></textarea>
+
+            <label for="importancia">Importancia</label>
+            <select id="importanciaNueva">
+                <option>Selecciona una opcion</option>
+                <option value="alto">Alto</option>
+                <option value="medio">Medio</option>
+                <option value="bajo">Bajo</option>
+            </select>  
+        </form>
+        <button id="guardarCambios">Guardar Cambios</button>
+    </dialog>
+
+    <dialog id="modal_detalle" class="detalle_modal">
+        <div class="detalles" id="detalleContenedor">
+            
+        </div>
+    
+        <button id="modalDetalleClose" class="detalleEstilos">Cerrar Ventana</button> 
+
+    </dialog>
+    <script type="module" src="app.js"></script>
+</body>
+
+ 
+</html>
+   
