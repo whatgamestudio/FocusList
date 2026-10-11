@@ -1,5 +1,5 @@
 import {guardadoLocal,guardadoLocalEstatico} from "./almacenamiento.js";
-import {mostrarTareas,mensajeTareas,textNoTarea,filtroImportanciaAlta,filtroImportanciaMedia, filtroImportanciaBaja} from "./tareasDom.js";
+import {mostrarTareas,mensajeTareas,textNoTarea,filtroImportancia} from "./tareasDom.js";
 import { guardadoArray,tareasNuevas,eliminarTarea,editarTarea,cambios,detalleTarea} from "./tarea.js";
 
 const agregar = document.getElementById("btn_agregar");
@@ -110,7 +110,7 @@ inicio_array.addEventListener("click", () => {
 const botonAlta = document.getElementById("btnAlta");
 
 botonAlta.addEventListener("click", () => {
-  filtroImportanciaAlta(tareasNuevas);
+  filtroImportancia(tareasNuevas);
   
 
 })
@@ -119,12 +119,12 @@ const botonMedia = document.getElementById("btnMedia");
 
 botonMedia.addEventListener("click", () => {
 
-   filtroImportanciaMedia(tareasNuevas);
+   filtroImportancia(tareasNuevas);
   
 })
 
 const botonBaja = document.getElementById("btnBaja");
 
 botonBaja.addEventListener("click", () => {
-   filtroImportanciaBaja(tareasNuevas);
+   filtroImportancia(tareasNuevas);
 })
