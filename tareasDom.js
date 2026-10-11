@@ -55,13 +55,23 @@ export const mensajeTareas = (textNoTarea, tareasNuevas) => {
 
 
 
-export const filtroImportanciaAlta = (tareasNuevas) => {
+export const filtroImportancia = (tareasNuevas) => {
      const tareaEncontrada = tareasNuevas.filter((tarea) => {
           
           if (tarea.importancia === "alto") {
 
                console.log(tarea);   
                return tarea;    
+          }
+          else if (tarea.importancia === "medio") {
+               console.log(tareaMedia);
+               return tarea;
+          }
+
+          else if (tarea.importancia === "bajo") {
+               console.log(tareaBaja);
+               return tarea;
+
           }
        
      })
@@ -71,7 +81,7 @@ export const filtroImportanciaAlta = (tareasNuevas) => {
 
 
 }
-
+/*
 export const filtroImportanciaMedia = (tareasNuevas) => {
      const tareaEncontradaMedia = tareasNuevas.filter((tareaMedia) => {
 
@@ -94,4 +104,4 @@ export const filtroImportanciaBaja = (tareasNuevas) => {
      })
 
      mostrarTareas(tareaEncontradaBaja);
-}
+} */
