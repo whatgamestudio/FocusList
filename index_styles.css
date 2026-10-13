@@ -1,19 +1,24 @@
 :root {
-    /* Fondo */
---bg: #0B0D0F;
+    /* ============================================ */
+    /* FONDOS - Tonalidades azules                   */
+    /* ============================================ */
+    --bg: #0F172A;                      /* Fondo general (azul noche) */
+    --slidebar: #1E293B;                /* Sidebar (azul pizarra) */
+    --tarjetas-principales: #1E293B;    /* Tarjetas principales */
+    --tarjetas-tareas: #334155;         /* Tarjetas de tareas (más claro) */
+    --bordes: #475569;                  /* Bordes azul grisáceo */
 
-/* Tarjetas */
---slidebar: #111417;
---tarjetas-principales: #171B1F;
---tarjetas-tareas: #1D2227;
---bordes: #30353A;
-/* Texto */
---text-primary: #F2EDE3;
---text-secondary: #A7A9AC;
+    /* ============================================ */
+    /* TEXTO                                         */
+    /* ============================================ */
+    --text-primary: #F1F5F9;            /* Texto principal (blanco azulado) */
+    --text-secondary: #94A3B8;          /* Texto secundario (gris azulado) */
 
-/* Botones */
---botones-principales: #D8B477;
---hover: #A9824F;
+    /* ============================================ */
+    /* BOTONES                                       */
+    /* ============================================ */
+    --botones-principales: #D8B477;
+    --hover: #A9824F;
 }
 
 body {
@@ -24,7 +29,6 @@ body {
     display: flex;
     flex-flow: row wrap;
     color: var(--text-primary);
-
 }
 
 .menu {
@@ -37,16 +41,13 @@ body {
     justify-content: space-evenly;
     align-content: center;
     background-color: var(--slidebar);
-    
 }
 
-.menu h1{
+.menu h1 {
     letter-spacing: 3px;
     font-weight: 700;
-    text-shadow: 0 10px 25px rgba(0,0,0,0.1) ;
+    text-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
-
-
 
 .btn_menu {
     font-size: large;
@@ -58,13 +59,12 @@ body {
     border: 1px solid var(--bordes);
 }
 
-
-.btn_menu:hover{
+.btn_menu:hover {
     background-color: var(--hover);
     transform: scale(1.1);
 }
 
-.inicio::before{
+.inicio::before {
     content: "";
     display: inline-block;
     width: 25px;
@@ -73,10 +73,10 @@ body {
     background-image: url("https://img.icons8.com/?size=100&id=2797&format=png&color=FFFFFF");
     background-size: cover;
     color: var(--botones-principales);
-    margin-right: 5px;    
+    margin-right: 5px;
 }
 
-.alta::before{
+.alta::before {
     content: "";
     display: inline-block;
     width: 25px;
@@ -84,14 +84,11 @@ body {
     background-image: url("https://img.icons8.com/?size=100&id=42478&format=png&color=FFFFFF");
     background-size: cover;
     margin-right: 5px;
-    
 }
 
 .alta {
     border: 2px solid greenyellow;
 }
-
-
 
 .media::before {
     content: "";
@@ -108,7 +105,6 @@ body {
     border: 2px solid yellow;
 }
 
-
 .baja::before {
     content: "";
     display: inline-block;
@@ -123,7 +119,6 @@ body {
 .baja {
     border: 2px solid red;
 }
-
 
 .principal {
     width: 80%;
@@ -144,17 +139,17 @@ body {
     background-color: var(--tarjetas-principales);
     box-sizing: border-box;
     padding: 20px;
-    box-shadow: 2px 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 2px 10px 30px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    border: 1px solid var(--bordes);
 }
 
-.agregar_nueva label{
+.agregar_nueva label {
     font-size: x-large;
     letter-spacing: 3px;
     font-weight: 600;
     margin-top: auto;
     margin-bottom: auto;
-
 }
 
 .agregar {
@@ -171,25 +166,26 @@ body {
     font-size: medium;
     font-weight: 400;
     letter-spacing: 3px;
+    border: none;
+    color: #0F172A;
 }
 
 .agregar:hover {
     transform: scale(1.4);
 }
 
-h2{
+h2 {
     width: max-content;
     font-weight: 700;
     letter-spacing: 4px;
     margin-bottom: 0;
-
 }
 
 .resumen {
     width: 90%;
     min-height: 200px;
     max-height: 450px;
-    box-shadow: 2px 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 2px 10px 30px rgba(0, 0, 0, 0.3);
     padding: 10px;
     margin-top: 0;
     border-radius: 10px;
@@ -200,7 +196,7 @@ h2{
     background-color: var(--tarjetas-principales);
     overflow-y: scroll;
     scroll-behavior: smooth;
-
+    border: 1px solid var(--bordes);
 }
 
 .activo_resumen {
@@ -220,19 +216,15 @@ h2{
     margin-right: auto;
     box-sizing: border-box;
     padding: 20px;
-   border-radius: 10px;
-    background-color:  var(--tarjetas-principales);
+    border-radius: 10px;
+    background-color: var(--tarjetas-principales);
     border: none;
     color: var(--text-primary);
- /*   display: flex;
-    flex-flow: column wrap;
-    justify-content: space-evenly;
-    align-content: center; */
 }
 
 .inactivo_nueva_tarea form {
     width: 90%;
-     display: flex;
+    display: flex;
     flex-flow: column wrap;
     margin-left: auto;
     margin-right: auto;
@@ -240,9 +232,7 @@ h2{
     align-content: center;
     box-sizing: border-box;
     padding: 25px;
-    
 }
-
 
 .inactivo_nueva_tarea form input {
     width: 65%;
@@ -250,35 +240,51 @@ h2{
     padding: 10px;
     font-size: medium;
     border-radius: 10px;
-    background-color: var(--tarjetas-tareas);
+    background-color: var(--bg);
     color: var(--text-primary);
+    border: 1px solid var(--bordes);
 }
 
+.inactivo_nueva_tarea form input:focus {
+    outline: none;
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
 
-.inactivo_nueva_tarea form select{
+.inactivo_nueva_tarea form select {
     box-sizing: border-box;
     padding: 8px;
     font-size: medium;
     border-radius: 10px;
-    background-color: var(--tarjetas-tareas);
+    background-color: var(--bg);
     color: var(--text-primary);
-
+    border: 1px solid var(--bordes);
 }
 
-.inactivo_nueva_tarea form textarea{
-     box-sizing: border-box;
+.inactivo_nueva_tarea form select:focus {
+    outline: none;
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.inactivo_nueva_tarea form textarea {
+    box-sizing: border-box;
     padding: 8px;
     font-size: medium;
     border-radius: 10px;
-    background-color: var(--tarjetas-tareas);
+    background-color: var(--bg);
     color: var(--text-primary);
-
-    
-
-
+    border: 1px solid var(--bordes);
+    resize: vertical;
 }
 
-.inactivo_nueva_tarea form label{
+.inactivo_nueva_tarea form textarea:focus {
+    outline: none;
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.inactivo_nueva_tarea form label {
     margin-top: 20px;
     margin-bottom: 10px;
     letter-spacing: 3px;
@@ -290,7 +296,7 @@ h2{
     box-sizing: border-box;
     padding: 10px;
     font-size: medium;
-    margin-left: 315PX;
+    margin-left: 315px;
     margin-right: auto;
     margin-top: 20px;
     font-weight: 600;
@@ -298,14 +304,19 @@ h2{
     background-color: var(--hover);
     color: var(--text-primary);
     border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-
+#guardar:hover {
+    background-color: #8A6838;
+    transform: translateY(-2px);
 }
 
 .inactivo_resumen {
     display: none;
 }
-
 
 .boxTarea {
     width: 90%;
@@ -319,10 +330,10 @@ h2{
     justify-content: space-evenly;
     align-content: space-evenly;
     margin-top: 15px;
-    background-color: var(--tarjetas-tareas); 
+    background-color: var(--tarjetas-tareas);
     color: var(--text-secondary);
     font-weight: 600;
-    box-shadow: 2px 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 2px 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .tareaTexto {
@@ -335,57 +346,68 @@ h2{
     flex-flow: column wrap;
     justify-content: space-evenly;
     align-content: center;
-    
+    gap: 6px;
 }
 
 .btnBox :nth-child(1) {
     background-color: #F87171;
-     box-sizing: border-box;
+    box-sizing: border-box;
     padding: 5px;
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
     font-size: medium;
     letter-spacing: 2px;
+    border: none;
+    color: #0F172A;
+    transition: transform 0.2s ease;
 }
 
 .btnBox :nth-child(2) {
     background-color: #818CF8;
-     box-sizing: border-box;
+    box-sizing: border-box;
     padding: 5px;
     font-size: medium;
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
     letter-spacing: 2px;
+    border: none;
+    color: #0F172A;
+    transition: transform 0.2s ease;
 }
 
 .btnBox :nth-child(3) {
     background-color: #E5E7EB;
-     box-sizing: border-box;
+    box-sizing: border-box;
     padding: 5px;
     font-size: medium;
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
     letter-spacing: 2px;
+    border: none;
+    color: #0F172A;
+    transition: transform 0.2s ease;
 }
 
-.tareaTexto :nth-child(3){
-     width: 100%;            /* Ancho máximo */
-    white-space: nowrap;     /* No permite saltos de línea */
-    overflow: hidden;        /* Oculta lo que sobra */
-    text-overflow: ellipsis;
+.btnBox :nth-child(1):hover,
+.btnBox :nth-child(2):hover,
+.btnBox :nth-child(3):hover {
+    transform: scale(1.05);
+}
 
-    
-    
+.tareaTexto :nth-child(3) {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .inputTareaEditable {
     width: 90%;
     background-color: red;
     font-size: large;
-    
 }
 
 #guardarCambios {
@@ -393,24 +415,30 @@ h2{
     box-sizing: border-box;
     padding: 10px;
     font-size: medium;
-    margin-left: 315PX;
+    margin-left: 315px;
     margin-right: auto;
     margin-top: 20px;
     font-weight: bold;
     letter-spacing: 2px;
     background-color: var(--hover);
     color: var(--text-primary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-
+#guardarCambios:hover {
+    background-color: #8A6838;
+    transform: translateY(-2px);
 }
 
 .detalle_modal {
     width: 80%;
-   
     box-sizing: border-box;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
-    background-color: var(--bg);
+    background-color: var(--tarjetas-principales);
     color: var(--text-primary);
     border: 2px solid var(--bordes);
     font-size: large;
@@ -421,18 +449,26 @@ h2{
     box-sizing: border-box;
     padding: 10px;
     font-size: medium;
-    margin-left: 315PX;
+    margin-left: 315px;
     margin-right: auto;
     margin-top: 20px;
     font-weight: bold;
     letter-spacing: 2px;
     background-color: var(--hover);
     color: var(--text-primary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.detalleEstilos:hover {
+    background-color: #8A6838;
+    transform: translateY(-2px);
 }
 
 .detalles {
     box-sizing: border-box;
     padding: 20px;
     font-size: large;
-    
 }
