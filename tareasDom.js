@@ -55,24 +55,13 @@ export const mensajeTareas = (textNoTarea, tareasNuevas) => {
 
 
 
-export const filtroImportancia = (tareasNuevas) => {
+export const filtroImportancia = (tareasNuevas,importancia) => {
      const tareaEncontrada = tareasNuevas.filter((tarea) => {
           
-          if (tarea.importancia === "alto") {
+        if(tarea.importancia === importancia) {
+          return tarea;
 
-               console.log(tarea);   
-               return tarea;    
-          }
-          else if (tarea.importancia === "medio") {
-               console.log(tareaMedia);
-               return tarea;
-          }
-
-          else if (tarea.importancia === "bajo") {
-               console.log(tareaBaja);
-               return tarea;
-
-          }
+        }       
        
      })
 

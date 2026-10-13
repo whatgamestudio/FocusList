@@ -109,22 +109,50 @@ inicio_array.addEventListener("click", () => {
 
 const botonAlta = document.getElementById("btnAlta");
 
-botonAlta.addEventListener("click", () => {
-  filtroImportancia(tareasNuevas);
+botonAlta.addEventListener("click", (evento) => {
+  if(evento.target.classList.contains("alta")) {
+  const importancia = evento.target.dataset.importancia
+
+  if (importancia) {
+
+   filtroImportancia(tareasNuevas,importancia);
+
+  }
+
+  }
   
 
 })
 
 const botonMedia = document.getElementById("btnMedia");
 
-botonMedia.addEventListener("click", () => {
+botonMedia.addEventListener("click", (evento) => {
 
-   filtroImportancia(tareasNuevas);
+  if(evento.target.classList.contains("media")) {
+  const importancia = evento.target.dataset.importancia
+
+  if (importancia) {
+
+   filtroImportancia(tareasNuevas,importancia);
+
+  }
+
+  }
   
 })
 
 const botonBaja = document.getElementById("btnBaja");
 
-botonBaja.addEventListener("click", () => {
-   filtroImportancia(tareasNuevas);
+botonBaja.addEventListener("click", (evento) => {
+
+   if(evento.target.classList.contains("baja")) {
+  const importancia = evento.target.dataset.importancia
+
+  if (importancia) {
+
+   filtroImportancia(tareasNuevas,importancia);
+
+  }
+
+  }
 })
