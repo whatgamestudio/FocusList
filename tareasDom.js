@@ -70,27 +70,3 @@ export const filtroImportancia = (tareasNuevas,importancia) => {
 
 
 }
-/*
-export const filtroImportanciaMedia = (tareasNuevas) => {
-     const tareaEncontradaMedia = tareasNuevas.filter((tareaMedia) => {
-
-          if (tareaMedia.importancia === "medio") {
-               console.log(tareaMedia);
-               return tareaMedia;
-          }
-
-     })
-
-     mostrarTareas(tareaEncontradaMedia);
-}
-
-export const filtroImportanciaBaja = (tareasNuevas) => {
-     const tareaEncontradaBaja = tareasNuevas.filter((tareaBaja) => {
-          if(tareaBaja.importancia === "bajo") {
-               console.log(tareaBaja);
-               return tareaBaja;
-          }
-     })
-
-     mostrarTareas(tareaEncontradaBaja);
-} */
