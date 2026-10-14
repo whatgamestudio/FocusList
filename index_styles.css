@@ -1,438 +1,689 @@
+/* ============================================ */
+/* VARIABLES GLOBALES                            */
+/* ============================================ */
+
 :root {
     /* Fondo */
---bg: #0B0D0F;
+    --bg: #0F172A;
+    --bg-secondary: #1E293B;
 
-/* Tarjetas */
---slidebar: #111417;
---tarjetas-principales: #171B1F;
---tarjetas-tareas: #1D2227;
---bordes: #30353A;
-/* Texto */
---text-primary: #F2EDE3;
---text-secondary: #A7A9AC;
+    /* Tarjetas */
+    --slidebar: #1E293B;
+    --tarjetas-principales: #1E293B;
+    --tarjetas-tareas: #334155;
+    --bordes: #475569;
+    --hover-card: #3B4A5F;
 
-/* Botones */
---botones-principales: #D8B477;
---hover: #A9824F;
+    /* Texto */
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+
+    /* Botones */
+    --botones-principales: #D8B477;
+    --hover: #A9824F;
+    --active: #8A6838;
+
+    /* Acento azul moderno */
+    --accent-blue: #3B82F6;
+    --accent-blue-hover: #2563EB;
+
+    /* Sombras */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-gold: 0 4px 15px rgba(216, 180, 119, 0.2);
+
+    /* Radios */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    /* Transiciones */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
     padding: 0;
     background-color: var(--bg);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-flow: row wrap;
     color: var(--text-primary);
-
+    min-height: 100dvh;
 }
+
+/* ============================================ */
+/* SIDEBAR / MENÚ                                */
+/* ============================================ */
 
 .menu {
     width: 15%;
+    min-width: 220px;
     height: 100vh;
     box-sizing: border-box;
-    padding: 15px;
+    padding: 25px 18px;
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-evenly;
-    align-content: center;
+    justify-content: flex-start;
+    gap: 20px;
     background-color: var(--slidebar);
-    
+    border-right: 1px solid var(--bordes);
+    position: sticky;
+    top: 0;
 }
 
-.menu h1{
+.menu h1 {
     letter-spacing: 3px;
-    font-weight: 700;
-    text-shadow: 0 10px 25px rgba(0,0,0,0.1) ;
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin: 0 0 20px 0;
+    color: var(--botones-principales);
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--bordes);
 }
-
-
 
 .btn_menu {
-    font-size: large;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.9s ease-in, transform 0.9s ease-in;
-    box-sizing: border-box;
-    padding: 8px;
-    border-radius: 10px;
+    transition: var(--transition);
+    padding: 12px 15px;
+    border-radius: var(--radius-sm);
     border: 1px solid var(--bordes);
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
-
-.btn_menu:hover{
-    background-color: var(--hover);
-    transform: scale(1.1);
+.btn_menu:hover {
+    background-color: var(--hover-card);
+    color: var(--text-primary);
+    transform: translateX(5px);
+    border-color: var(--botones-principales);
 }
 
-.inicio::before{
+/* Iconos del menú */
+.inicio::before {
     content: "";
     display: inline-block;
-    width: 25px;
-    height: 25px;
-    object-fit: cover;
+    width: 22px;
+    height: 22px;
     background-image: url("https://img.icons8.com/?size=100&id=2797&format=png&color=FFFFFF");
     background-size: cover;
-    color: var(--botones-principales);
-    margin-right: 5px;    
+    margin-right: 10px;
+    flex-shrink: 0;
 }
 
-.alta::before{
+.alta::before {
     content: "";
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     background-image: url("https://img.icons8.com/?size=100&id=42478&format=png&color=FFFFFF");
     background-size: cover;
-    margin-right: 5px;
-    
+    margin-right: 10px;
+    flex-shrink: 0;
 }
-
-.alta {
-    border: 2px solid greenyellow;
-}
-
-
 
 .media::before {
     content: "";
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     background-image: url("https://img.icons8.com/?size=100&id=XVNvUWCvvlD9&format=png&color=FFFFFF");
     background-size: cover;
-    margin-right: 5px;
-    top: 5px;
+    margin-right: 10px;
+    flex-shrink: 0;
 }
-
-.media {
-    border: 2px solid yellow;
-}
-
 
 .baja::before {
     content: "";
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     background-image: url("https://img.icons8.com/?size=100&id=73862&format=png&color=FFFFFF");
     background-size: cover;
-    margin-right: 5px;
-    top: 5px;
+    margin-right: 10px;
+    flex-shrink: 0;
 }
 
-.baja {
-    border: 2px solid red;
-}
+/* Colores de acento por importancia */
+.alta { border-left: 4px solid #10B981; }
+.media { border-left: 4px solid #F59E0B; }
+.baja { border-left: 4px solid #EF4444; }
+.inicio { border-left: 4px solid var(--botones-principales); }
 
+/* ============================================ */
+/* CONTENEDOR PRINCIPAL                          */
+/* ============================================ */
 
 .principal {
-    width: 80%;
+    width: 85%;
+    flex: 1;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 30px;
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-evenly;
-    align-content: center;
+    align-items: center;
+    gap: 20px;
 }
+
+/* ============================================ */
+/* TARJETA: AGREGAR NUEVA TAREA                  */
+/* ============================================ */
 
 .agregar_nueva {
-    width: 90%;
+    width: 95%;
+    max-width: 900px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
-    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
     background-color: var(--tarjetas-principales);
     box-sizing: border-box;
-    padding: 20px;
-    box-shadow: 2px 10px 30px rgba(0,0,0,0.3);
-    border-radius: 10px;
+    padding: 25px 30px;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--bordes);
 }
 
-.agregar_nueva label{
-    font-size: x-large;
-    letter-spacing: 3px;
-    font-weight: 600;
-    margin-top: auto;
-    margin-bottom: auto;
-
+.agregar_nueva label {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
 }
 
 .agregar {
     width: max-content;
-    border-radius: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    transition: transform 1.5s ease-in;
+    border-radius: var(--radius-sm);
+    margin: 0;
+    transition: var(--transition);
     cursor: pointer;
     box-sizing: border-box;
-    padding: 15px;
+    padding: 14px 25px;
     background-color: var(--botones-principales);
-    font-size: medium;
-    font-weight: 400;
-    letter-spacing: 3px;
+    color: #0F172A;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border: none;
+    box-shadow: var(--shadow-gold);
 }
 
 .agregar:hover {
-    transform: scale(1.4);
+    transform: scale(1.05) translateY(-2px);
+    background-color: var(--hover);
+    color: white;
+    box-shadow: 0 6px 20px rgba(216, 180, 119, 0.4);
 }
 
-h2{
-    width: max-content;
-    font-weight: 700;
+/* ============================================ */
+/* TÍTULO "TAREAS"                               */
+/* ============================================ */
+
+h2 {
+    width: 95%;
+    max-width: 900px;
+    font-weight: 800;
     letter-spacing: 4px;
-    margin-bottom: 0;
-
+    margin: 0;
+    padding-bottom: 12px;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--botones-principales);
+    text-align: left;
 }
+
+/* ============================================ */
+/* CONTENEDOR DE TAREAS                          */
+/* ============================================ */
 
 .resumen {
-    width: 90%;
-    min-height: 200px;
-    max-height: 450px;
-    box-shadow: 2px 10px 30px rgba(0,0,0,0.3);
-    padding: 10px;
-    margin-top: 0;
-    border-radius: 10px;
+    width: 95%;
+    max-width: 900px;
+    min-height: 250px;
+    max-height: 65dvh;
+    box-shadow: var(--shadow-md);
+    padding: 20px;
+    margin: 0;
+    border-radius: var(--radius-md);
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-evenly;
-    align-content: center;
+    gap: 15px;
     background-color: var(--tarjetas-principales);
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-
+    overflow-y: auto;
+    border: 1px solid var(--bordes);
 }
 
+/* Scrollbar personalizado */
+.resumen::-webkit-scrollbar {
+    width: 8px;
+}
+
+.resumen::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.resumen::-webkit-scrollbar-thumb {
+    background-color: var(--bordes);
+    border-radius: 4px;
+}
+
+.resumen::-webkit-scrollbar-thumb:hover {
+    background-color: var(--botones-principales);
+}
+
+/* Mensaje "sin tareas" */
 .activo_resumen {
     width: max-content;
-    margin-top: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    font-size: xx-large;
+    margin: 60px auto;
+    font-size: 1.5rem;
     font-weight: 400;
-    letter-spacing: 3px;
-}
-
-.inactivo_nueva_tarea {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-    padding: 20px;
-   border-radius: 10px;
-    background-color:  var(--tarjetas-principales);
-    border: none;
-    color: var(--text-primary);
- /*   display: flex;
-    flex-flow: column wrap;
-    justify-content: space-evenly;
-    align-content: center; */
-}
-
-.inactivo_nueva_tarea form {
-    width: 90%;
-     display: flex;
-    flex-flow: column wrap;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: space-evenly;
-    align-content: center;
-    box-sizing: border-box;
-    padding: 25px;
-    
-}
-
-
-.inactivo_nueva_tarea form input {
-    width: 65%;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: medium;
-    border-radius: 10px;
-    background-color: var(--tarjetas-tareas);
-    color: var(--text-primary);
-}
-
-
-.inactivo_nueva_tarea form select{
-    box-sizing: border-box;
-    padding: 8px;
-    font-size: medium;
-    border-radius: 10px;
-    background-color: var(--tarjetas-tareas);
-    color: var(--text-primary);
-
-}
-
-.inactivo_nueva_tarea form textarea{
-     box-sizing: border-box;
-    padding: 8px;
-    font-size: medium;
-    border-radius: 10px;
-    background-color: var(--tarjetas-tareas);
-    color: var(--text-primary);
-
-    
-
-
-}
-
-.inactivo_nueva_tarea form label{
-    margin-top: 20px;
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-    font-weight: 700;
-}
-
-#guardar {
-    width: 35%;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: medium;
-    margin-left: 315PX;
-    margin-right: auto;
-    margin-top: 20px;
-    font-weight: 600;
     letter-spacing: 2px;
-    background-color: var(--hover);
-    color: var(--text-primary);
-    border-radius: 10px;
-
-
+    color: var(--text-muted);
+    text-align: center;
 }
 
 .inactivo_resumen {
     display: none;
 }
 
+/* ============================================ */
+/* MODAL: NUEVA / EDITAR TAREA                   */
+/* ============================================ */
+
+.inactivo_nueva_tarea {
+    width: 90%;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 0;
+    border-radius: var(--radius-lg);
+    background-color: var(--tarjetas-principales);
+    border: none;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.inactivo_nueva_tarea::backdrop {
+    background-color: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(5px);
+}
+
+.inactivo_nueva_tarea form {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 30px;
+    gap: 5px;
+    box-sizing: border-box;
+}
+
+.inactivo_nueva_tarea form label {
+    margin-top: 12px;
+    margin-bottom: 6px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--botones-principales);
+    text-transform: uppercase;
+}
+
+.inactivo_nueva_tarea form input,
+.inactivo_nueva_tarea form select,
+.inactivo_nueva_tarea form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg);
+    color: var(--text-primary);
+    border: 1px solid var(--bordes);
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.inactivo_nueva_tarea form textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.inactivo_nueva_tarea form input:focus,
+.inactivo_nueva_tarea form select:focus,
+.inactivo_nueva_tarea form textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* Botón guardar del modal */
+#guardar,
+#guardarCambios {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background-color: var(--botones-principales);
+    color: #0F172A;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 20px;
+    box-shadow: var(--shadow-gold);
+}
+
+#guardar:hover,
+#guardarCambios:hover {
+    background-color: var(--hover);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(216, 180, 119, 0.4);
+}
+
+/* ============================================ */
+/* TARJETA DE TAREA                              */
+/* ============================================ */
 
 .boxTarea {
-    width: 90%;
+    width: 100%;
     box-sizing: border-box;
-    padding: 25px;
-    font-size: medium;
-    border-radius: 10px;
-    border: 2px solid var(--bordes);
+    padding: 22px;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--bordes);
+    border-left: 5px solid var(--botones-principales);
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-content: space-evenly;
-    margin-top: 15px;
-    background-color: var(--tarjetas-tareas); 
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--tarjetas-tareas);
     color: var(--text-secondary);
-    font-weight: 600;
-    box-shadow: 2px 10px 30px rgba(0,0,0,0.3);
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.boxTarea:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--accent-blue);
 }
 
 .tareaTexto {
     width: 70%;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 6px;
 }
+
+.tareaTexto p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.tareaTexto p:nth-child(1) {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.tareaTexto p:nth-child(2) {
+    color: var(--botones-principales);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tareaTexto p:nth-child(3) {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ============================================ */
+/* BOTONES DE LA TARJETA                         */
+/* ============================================ */
 
 .btnBox {
     width: max-content;
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-evenly;
-    align-content: center;
-    
+    gap: 8px;
+}
+
+.btnBox button {
+    box-sizing: border-box;
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border: none;
+    font-family: inherit;
+    transition: var(--transition);
+    color: #0F172A;
 }
 
 .btnBox :nth-child(1) {
     background-color: #F87171;
-     box-sizing: border-box;
-    padding: 5px;
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-    font-size: medium;
-    letter-spacing: 2px;
+}
+
+.btnBox :nth-child(1):hover {
+    background-color: #DC2626;
+    color: white;
+    transform: translateX(-3px);
 }
 
 .btnBox :nth-child(2) {
     background-color: #818CF8;
-     box-sizing: border-box;
-    padding: 5px;
-    font-size: medium;
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-    letter-spacing: 2px;
+}
+
+.btnBox :nth-child(2):hover {
+    background-color: #4F46E5;
+    color: white;
+    transform: translateX(-3px);
 }
 
 .btnBox :nth-child(3) {
     background-color: #E5E7EB;
-     box-sizing: border-box;
-    padding: 5px;
-    font-size: medium;
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-    letter-spacing: 2px;
 }
 
-.tareaTexto :nth-child(3){
-     width: 100%;            /* Ancho máximo */
-    white-space: nowrap;     /* No permite saltos de línea */
-    overflow: hidden;        /* Oculta lo que sobra */
-    text-overflow: ellipsis;
-
-    
-    
+.btnBox :nth-child(3):hover {
+    background-color: #94A3B8;
+    color: white;
+    transform: translateX(-3px);
 }
 
-.inputTareaEditable {
-    width: 90%;
-    background-color: red;
-    font-size: large;
-    
-}
-
-#guardarCambios {
-    width: 35%;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: medium;
-    margin-left: 315PX;
-    margin-right: auto;
-    margin-top: 20px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    background-color: var(--hover);
-    color: var(--text-primary);
-
-
-}
+/* ============================================ */
+/* MODAL DE DETALLES                             */
+/* ============================================ */
 
 .detalle_modal {
-    width: 80%;
-   
+    width: 85%;
+    max-width: 600px;
     box-sizing: border-box;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: var(--bg);
+    padding: 0;
+    border-radius: var(--radius-lg);
+    background-color: var(--tarjetas-principales);
     color: var(--text-primary);
-    border: 2px solid var(--bordes);
-    font-size: large;
+    border: none;
+    font-size: 1rem;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
 }
 
-.detalleEstilos {
-    width: 35%;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: medium;
-    margin-left: 315PX;
-    margin-right: auto;
-    margin-top: 20px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    background-color: var(--hover);
-    color: var(--text-primary);
+.detalle_modal::backdrop {
+    background-color: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(5px);
 }
 
 .detalles {
     box-sizing: border-box;
-    padding: 20px;
-    font-size: large;
-    
+    padding: 30px;
+    font-size: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+}
+
+.detalles h2 {
+    width: 100%;
+    margin: 0 0 15px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--botones-principales);
+    color: var(--botones-principales);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.detalles h4 {
+    margin: 10px 0 4px 0;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.detalles p {
+    margin: 0 0 10px 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 10px 15px;
+    background-color: var(--bg);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--accent-blue);
+}
+
+.detalleEstilos {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background-color: var(--botones-principales);
+    color: #0F172A;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    margin: 0 30px 30px 30px;
+    width: calc(100% - 60px);
+    box-shadow: var(--shadow-gold);
+}
+
+.detalleEstilos:hover {
+    background-color: var(--hover);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(216, 180, 119, 0.4);
+}
+
+/* Input especial de edición */
+.inputTareaEditable {
+    width: 90%;
+    background-color: var(--accent-blue);
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    border: none;
+}
+
+/* ============================================ */
+/* RESPONSIVE                                    */
+/* ============================================ */
+
+@media (max-width: 900px) {
+    .menu {
+        width: 100%;
+        min-width: unset;
+        height: auto;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        padding: 15px;
+        position: static;
+        gap: 10px;
+    }
+
+    .menu h1 {
+        width: 100%;
+        margin-bottom: 5px;
+        padding-bottom: 10px;
+    }
+
+    .btn_menu {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+
+    .principal {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .agregar_nueva {
+        flex-flow: column nowrap;
+        text-align: center;
+    }
+
+    .boxTarea {
+        flex-flow: column nowrap;
+        align-items: flex-start;
+    }
+
+    .tareaTexto {
+        width: 100%;
+    }
+
+    .btnBox {
+        width: 100%;
+        flex-flow: row wrap;
+    }
+
+    .btnBox button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 500px) {
+    .btn_menu {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+
+    .agregar_nueva label {
+        font-size: 1.1rem;
+    }
+
+    .boxTarea {
+        padding: 18px;
+    }
+
+    .btnBox {
+        flex-flow: column nowrap;
+    }
 }
